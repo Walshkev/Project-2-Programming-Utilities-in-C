@@ -18,10 +18,10 @@ int main(int argc, char *argv[]) {
         // Loop through the files specified on the command line
         for (int i = 1; i < argc; i++) {
             input_fd = open(argv[i], O_RDONLY);
-            if (input_fd == -1) {
-                perror("Error opening file");
-                exit(EXIT_FAILURE);
-            }
+            // if (input_fd == -1) {
+            //     perror("Error opening file");
+            //     exit(EXIT_FAILURE);
+            // }
 
             // Read from the file and write to stdout
             while ((bytes_read = read(input_fd, buffer, BUFFER_SIZE)) > 0) {
@@ -42,10 +42,11 @@ int main(int argc, char *argv[]) {
             }
 
             // Close the file
-            if (close(input_fd) == -1) {
-                perror("Error closing file");
-                exit(EXIT_FAILURE);
-            }
+            close(fin) ;
+            // if (close(input_fd) == -1) {
+            //     perror("Error closing file");
+            //     exit(EXIT_FAILURE);
+            // }
         }
     }
 
